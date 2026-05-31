@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>old.reddit Dark Mode</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      width: 220px;
+      padding: 12px 14px;
+      background: #1a1d27;
+      color: #dde1f0;
+      margin: 0;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 10px;
+      color: #dde1f0;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    label { color: #8891b4; }
+
+    /* Toggle */
+    .switch { position: relative; display: inline-block; width: 36px; height: 20px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #2e3248; border-radius: 20px;
+      transition: .2s;
+    }
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 14px; height: 14px;
+      left: 3px; bottom: 3px;
+      background: #8891b4; border-radius: 50%;
+      transition: .2s;
+    }
+    input:checked + .slider { background: #7b8cde; }
+    input:checked + .slider::before { transform: translateX(16px); background: #fff; }
+
+    /* Colour pickers */
+    .swatch-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .swatch {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color .15s;
+    }
+    .swatch:hover, .swatch.active { border-color: #dde1f0; }
+
+    .btn {
+      width: 100%;
+      padding: 6px;
+      border: none;
+      border-radius: 4px;
+      background: #7b8cde;
+      color: #0f1117;
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+    .btn:hover { background: #a0aef5; }
+    .btn-ghost {
+      background: #2e3248;
+      color: #8891b4;
+      margin-top: 6px;
+    }
+    .btn-ghost:hover { background: #383d58; color: #dde1f0; }
+
+    .divider { border: none; border-top: 1px solid #2e3248; margin: 10px 0; }
+    .note { font-size: 11px; color: #555d80; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <h2>🌙 old.reddit dark mode</h2>
+
+  <div class="row">
+    <label for="toggle">Enabled</label>
+    <label class="switch">
+      <input type="checkbox" id="toggle" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <hr class="divider">
+
+  <label style="display:block;margin-bottom:6px">Accent colour</label>
+  <div class="swatch-row" id="swatches">
+    <div class="swatch active" data-color="#7b8cde" style="background:#7b8cde" title="Periwinkle"></div>
+    <div class="swatch" data-color="#de8c7b" style="background:#de8c7b" title="Coral"></div>
+    <div class="swatch" data-color="#7bde9a" style="background:#7bde9a" title="Mint"></div>
+    <div class="swatch" data-color="#deb87b" style="background:#deb87b" title="Amber"></div>
+    <div class="swatch" data-color="#c47bde" style="background:#c47bde" title="Violet"></div>
+    <div class="swatch" data-color="#7bbfde" style="background:#7bbfde" title="Sky blue"></div>
+  </div>
+
+  <hr class="divider">
+
+  <label style="display:block;margin-bottom:6px">Background darkness</label>
+  <input type="range" id="darkness" min="0" max="100" value="50"
+    style="width:100%;accent-color:#7b8cde">
+
+  <hr class="divider">
+
+  <button class="btn" id="reload-btn">Reload tab to apply</button>
+  <button class="btn btn-ghost" id="reset-btn">Reset to defaults</button>
+
+  <p class="note">Edit <code>dark.css</code> to fully customise the theme.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

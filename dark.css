@@ -1,0 +1,325 @@
+/* =====================================================
+   old.reddit.com — Custom Dark Mode
+   Edit colours here to personalise your theme.
+   ===================================================== */
+
+/* -- Colour palette ---------------------------------- */
+:root {
+  --bg-page:       #0f1117;   /* outer page background  */
+  --bg-main:       #1a1d27;   /* main content column    */
+  --bg-card:       #21253a;   /* post/comment cards     */
+  --bg-card-hover: #272c42;
+  --bg-sidebar:    #1c1f30;
+  --bg-input:      #2a2e40;
+  --bg-header:     #0d0f1a;
+
+  --border:        #2e3248;
+  --border-light:  #383d58;
+
+  --text-primary:  #dde1f0;
+  --text-muted:    #8891b4;
+  --text-faint:    #555d80;
+
+  --accent:        #7b8cde;   /* links, upvote highlight */
+  --accent-hover:  #a0aef5;
+  --upvote:        #e0804a;
+  --downvote:      #7b8cde;
+  --nsfw:          #c0384b;
+
+  --visited:       #9d8cde;
+}
+
+/* -- Reset aggressive white backgrounds -------------- */
+html, body {
+  background-color: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
+
+/* -- Header / nav bar -------------------------------- */
+#header,
+#header-bottom-left,
+#header-bottom-right {
+  background-color: var(--bg-header) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+#header .tabmenu li a,
+#header .tabmenu li a:visited {
+  color: var(--text-muted) !important;
+  background: transparent !important;
+}
+
+#header .tabmenu li.selected a,
+#header .tabmenu li a:hover {
+  color: var(--text-primary) !important;
+  background: var(--bg-card) !important;
+}
+
+/* Search bar */
+#search input[type="text"] {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* -- Main content column ----------------------------- */
+.content, #siteTable {
+  background: transparent !important;
+}
+
+.link, .comment-page .comment-area {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.link:hover {
+  background-color: var(--bg-card-hover) !important;
+}
+
+/* Post title */
+.title a.title,
+.title a.title:visited {
+  color: var(--text-primary) !important;
+}
+
+.title a.title:visited {
+  color: var(--visited) !important;
+}
+
+.title a.title:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* Domain / metadata tags */
+.domain a, .tagline, .tagline a, .tagline .author {
+  color: var(--text-muted) !important;
+}
+
+.tagline a:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* Flair */
+.linkflairlabel {
+  background: var(--bg-input) !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+/* Score & vote buttons */
+.score, .likes, .unvoted {
+  color: var(--text-muted) !important;
+}
+
+.arrow.up:hover, .arrow.upmod { color: var(--upvote) !important; }
+.arrow.down:hover, .arrow.downmod { color: var(--downvote) !important; }
+
+/* Action links (comments, save, hide…) */
+.flat-list li a {
+  color: var(--text-faint) !important;
+}
+
+.flat-list li a:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* -- Comments ---------------------------------------- */
+.commentarea .thing {
+  background: transparent !important;
+}
+
+.comment .usertext-body {
+  background: transparent !important;
+}
+
+.comment {
+  border-left: 2px solid var(--border) !important;
+}
+
+.comment:hover > .entry {
+  background: var(--bg-card-hover) !important;
+  border-radius: 4px;
+}
+
+/* Distinguish marker */
+.comment.moderator > .entry,
+.comment.admin > .entry {
+  background: rgba(123, 140, 222, 0.07) !important;
+}
+
+/* Comment author */
+.comment .author {
+  color: var(--accent) !important;
+}
+
+.comment .author.moderator { color: #5dbf76 !important; }
+.comment .author.admin      { color: var(--nsfw) !important; }
+
+/* Collapsed comments */
+.comment.collapsed .comment-toggle,
+.comment .expand {
+  color: var(--text-faint) !important;
+}
+
+/* -- Text body (self-posts & comments) --------------- */
+.md, .usertext-body, .md p, .md li {
+  color: var(--text-primary) !important;
+}
+
+.md a, .usertext-body a {
+  color: var(--accent) !important;
+}
+
+.md a:hover, .usertext-body a:hover {
+  color: var(--accent-hover) !important;
+}
+
+.md blockquote {
+  border-left: 3px solid var(--border-light) !important;
+  color: var(--text-muted) !important;
+  background: var(--bg-page) !important;
+}
+
+.md code, .md pre {
+  background: var(--bg-page) !important;
+  color: #a8d0e6 !important;
+  border: 1px solid var(--border) !important;
+}
+
+.md table th {
+  background: var(--bg-input) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.md table td {
+  border: 1px solid var(--border) !important;
+}
+
+.md table tr:nth-child(even) td {
+  background: rgba(255,255,255,0.02) !important;
+}
+
+/* -- Sidebar ----------------------------------------- */
+.side {
+  background: transparent !important;
+}
+
+.side .titlebox,
+.side .spacer,
+.widget-container,
+.side .subreddit-info {
+  background: var(--bg-sidebar) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px;
+}
+
+.side .titlebox h1 {
+  color: var(--text-primary) !important;
+}
+
+.side .morelink {
+  background: var(--accent) !important;
+  color: #0f1117 !important;
+}
+
+.side .morelink:hover {
+  background: var(--accent-hover) !important;
+}
+
+/* Moderator list */
+.side .moderator-list a {
+  color: var(--accent) !important;
+}
+
+/* -- Input fields & buttons -------------------------- */
+textarea, input[type="text"], input[type="email"],
+input[type="password"], input[type="url"], select {
+  background-color: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+textarea:focus, input:focus {
+  border-color: var(--accent) !important;
+  outline: none !important;
+}
+
+.btn, .btn-primary, button[type="submit"],
+.save-button a, .reply-button a {
+  background-color: var(--accent) !important;
+  color: #0f1117 !important;
+  border: none !important;
+}
+
+.btn:hover, .btn-primary:hover, button[type="submit"]:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+.btn-secondary, .btn-cancel {
+  background: var(--bg-input) !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+/* -- Subreddit title & banner ------------------------ */
+.pagename a, .pagename a:visited {
+  color: var(--text-primary) !important;
+}
+
+/* -- NSFW tag ---------------------------------------- */
+.nsfw-stamp {
+  background: var(--nsfw) !important;
+  color: #fff !important;
+}
+
+/* -- Awards & gilding -------------------------------- */
+.gilded-commenthread, .gold-envelope {
+  background: transparent !important;
+}
+
+/* -- Sort tabs --------------------------------------- */
+.drop-choices.lightdrop {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.drop-choices.lightdrop a,
+.drop-choices.lightdrop a:visited {
+  color: var(--text-muted) !important;
+}
+
+.drop-choices.lightdrop a:hover {
+  background: var(--bg-card-hover) !important;
+  color: var(--text-primary) !important;
+}
+
+/* -- Report / admin bars ----------------------------- */
+.adminbar, .reportform {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* -- Footer ------------------------------------------ */
+#footer {
+  background: var(--bg-header) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--text-faint) !important;
+}
+
+#footer a, #footer a:visited {
+  color: var(--text-faint) !important;
+}
+
+#footer a:hover { color: var(--accent) !important; }
+
+/* -- Misc -------------------------------------------- */
+.rounded, .rounded-bottom {
+  background: var(--bg-card) !important;
+}
+
+hr {
+  border-color: var(--border) !important;
+}
+
+/* Reddit images can stay as-is; dim if you prefer: */
+/* .preview img { opacity: 0.88; } */
