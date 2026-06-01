@@ -39,8 +39,7 @@ function applyAll({ enabled, accent, darkness }) {
 }
 
 function setEnabled(on) {
-  document.querySelectorAll('[data-reddit-dark]')
-    .forEach(el => el.disabled = !on);
+  linkEl.disabled = !on;
 }
 
 function setAccent(color) {
@@ -56,10 +55,10 @@ function setDarkness(value) {
 function buildOverrides() {
   return `
     :root {
-      --accent:  ${currentAccent} !important;
-      --bg-page: hsl(230, 12%, ${clamp(4,  8,  8  - currentDarkness * 0.04)}%) !important;
-      --bg-main: hsl(230, 20%, ${clamp(8,  16, 16 - currentDarkness * 0.06)}%) !important;
-      --bg-card: hsl(232, 22%, ${clamp(10, 20, 20 - currentDarkness * 0.07)}%) !important;
+      --accent:  ${currentAccent};
+      --bg-page: hsl(230, 12%, ${clamp(4,  8,  8  - currentDarkness * 0.04)}%);
+      --bg-main: hsl(230, 20%, ${clamp(8,  16, 16 - currentDarkness * 0.06)}%);
+      --bg-card: hsl(232, 22%, ${clamp(10, 20, 20 - currentDarkness * 0.07)}%);
     }
   `;
 }
