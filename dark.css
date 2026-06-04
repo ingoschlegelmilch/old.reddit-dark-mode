@@ -164,6 +164,7 @@ html, body {
 /* -- Text body (self-posts & comments) --------------- */
 .md, .usertext-body, .md p, .md li {
   color: var(--text-primary) !important;
+  background: transparent !important;
 }
 
 .md a, .usertext-body a {
