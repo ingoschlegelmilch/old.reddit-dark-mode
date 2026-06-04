@@ -63,8 +63,9 @@ html, body {
 }
 
 /* -- Main content column ----------------------------- */
-.content, #siteTable {
-  background: transparent !important;
+html body .content,
+#siteTable {
+  background: var(--bg-page) !important;
 }
 
 .link, .comment-page .comment-area {
@@ -124,11 +125,14 @@ html, body {
 }
 
 /* -- Comments ---------------------------------------- */
-.commentarea .thing {
+/* :not(#z) contributes (1,0,0) specificity — beats Reddit's depth-based compound selectors */
+:not(#z) .commentarea .thing,
+:not(#z) .commentarea .child,
+:not(#z) .commentarea .listing {
   background: transparent !important;
 }
 
-.comment .usertext-body {
+:not(#z) .comment .usertext-body {
   background: transparent !important;
 }
 

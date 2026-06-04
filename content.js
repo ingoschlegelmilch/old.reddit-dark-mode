@@ -1,11 +1,9 @@
-// Inject dark.css as a DOM element so it can be toggled via .disabled
 const linkEl = document.createElement("link");
 linkEl.rel = "stylesheet";
 linkEl.href = browser.runtime.getURL("dark.css");
 linkEl.dataset.redditDark = "";
 document.documentElement.appendChild(linkEl);
 
-// Inject a <style> tag for runtime variable overrides
 const styleEl = document.createElement("style");
 styleEl.id = "reddit-dark-overrides";
 styleEl.dataset.redditDark = "";
